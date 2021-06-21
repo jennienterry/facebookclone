@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="basicLayout"> <!-- 어디 폴더안에 있었다면 templates/basicLayout /웹서버 root 기준 -->
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/user/join.css}">
+    </th:block>
+
+    <th:block layout:fragment="content">
+        <h1>join</h1>
+        <form th:action="@{join}" method="post" th:object="${userEntity}">
+            <div><input type="text" th:field="*{email}" placeholder="email" autofocus required></div><!-- name값을 생략해도 똑같이 인식한다.-->
+            <div><input type="password" th:field="*{pw}" placeholder="password"></div>
+            <div><input type="text" th:field="*{nm}" placeholder="name"></div>
+            <div><input type="tel" th:field="*{tel}" placeholder="tel"></div>
+                <div>
+                    <input type="submit" value="회원가입">
+                    <input type="reset" value="초기화">
+                </div>
+        </form>
+        <div>
+            <a th:href="@{login}">로그인</a>
+        </div>
+    </th:block>
+
+</html>

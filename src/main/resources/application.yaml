@@ -1,0 +1,21 @@
+# view resolver 세팅과 같다.
+spring:
+  thymeleaf:
+    check-template-location: true
+    prefix : classpath:templates/
+    suffix : .html
+    mode: HTML
+    cache : false
+  datasource:
+     url: jdbc:mysql://localhost:3308/facebook
+     username: root
+     password: koreait
+     driver-class-name: org.mariadb.jdbc.Driver # 생략하면 안됨
+
+mybatis :
+  mapper-locations: mybatis-mapper/**/*.xml # 폴더 몇개 있어도 상관없다는 의미 /**
+  type-aliases-package: com.koreait.facebook
+
+#톰캣 포트 변경
+server:
+  port: 8090

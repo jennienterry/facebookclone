@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="basicLayout"> <!-- 어디 폴더안에 있었다면 templates/basicLayout /웹서버 root 기준 -->
+
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/user/login.css}">
+    </th:block>
+
+    <th:block layout:fragment="content">
+        <h1>login</h1>
+        <div>
+            <a th:href="@{join}">회원가입</a>
+        </div>
+    </th:block>
+
+</html>

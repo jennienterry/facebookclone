@@ -1,5 +1,16 @@
 # view resolver 세팅과 같다.
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: luvmin3724
+    password: zufa luub nwhp nfnz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   thymeleaf:
     check-template-location: true
     prefix : classpath:templates/
@@ -14,8 +25,10 @@ spring:
 
 mybatis :
   mapper-locations: mybatis-mapper/**/*.xml # 폴더 몇개 있어도 상관없다는 의미 /**
-  type-aliases-package: com.koreait.facebook
+  type-aliases-package: com.koreait.facebook # 이게 있어서 getter,setter 있는 곳에 @Alias 안줘도 되는 것
 
 #톰캣 포트 변경
 server:
   port: 8090
+
+# yaml은 applicationproperties와 같다.

@@ -16,11 +16,17 @@ public class UserController {
     public void login() {} /* void면 return없지만 비void면 String으로 */
 
     @GetMapping("/join")
-    public void join(@ModelAttribute UserEntity userEntity){}
+    public void join(@ModelAttribute UserEntity userEntity){} /* Model 생략가능 */
 
     @PostMapping("/join")
     public String joinProc(UserEntity userEntity){
         service.join(userEntity);
-        return "redirect:/feed/home";
+        return "redirect:/login?email=1";
+    }
+
+    @GetMapping("/auth")
+    public String auth(UserEntity param){
+        int result = service.auth(param);
+        return "redirect:needEmail?=" + result;
     }
 }

@@ -4,11 +4,19 @@
 <mapper namespace="com.koreait.facebook.user.UserMapper">
     <insert id="join">
         INSERT INTO t_user
-        (email, pw, nm, tel)
+        (email, pw, nm, tel, authCd)
         VALUES
-        (#{email}, #{pw}, #{nm}, #{tel})
+        (#{email}, #{pw}, #{nm}, #{tel}, #{authCd})
     </insert>
 
-
+    <update id="auth">
+        UPDATE t_user
+        SET authCd = null
+        WHERE email = #{email} AND authCd = #{authCd}
+    </update>
 
 </mapper>
+
+
+ <!-- result type에는 클래스명이 들어간다.
+      getter setter있는 애들은 @Alias가 있는 것과 같다. -->

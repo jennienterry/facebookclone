@@ -12,6 +12,7 @@ public class UserEntity {
     private String nm;
     private String tel;
     private String authCd;
+    private String mainProfile;
     private String regdt;
 
 }
